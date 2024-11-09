@@ -8,8 +8,6 @@ import { DiMysql } from 'react-icons/di'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import ProjectCard from './project-card'
 
 interface Skill {
@@ -168,13 +166,13 @@ export function PortfolioComponent() {
 
         <section id="achievements" className="mb-12">
           <h2 className="text-4xl font-bold mb-4 text-center">Achievements</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievementsData.map((achievement, index) => (
               <Card key={index} className="bg-white bg-opacity-10 hover:bg-opacity-20 transition-all">
-                <CardHeader>
-                  <CardTitle>{achievement.title}</CardTitle>
+                <CardHeader className="p-4">
+                  <CardTitle className="text-lg font-semibold">{achievement.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-4">
                   <p>{achievement.description}</p>
                 </CardContent>
               </Card>
@@ -183,24 +181,20 @@ export function PortfolioComponent() {
         </section>
 
         <section id="contact" className="mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-center">Contact Me</h2>
-          <div className="flex justify-center space-x-6 mb-6">
-            {[{ Icon: Github, href: 'https://github.com/Vaibhavkulshrestha12' }, { Icon: Linkedin, href: 'https://www.linkedin.com/in/vaibhav-kulshrestha' }, { Icon: Mail, href: 'mailto:vaibhav@example.com' }].map(({ Icon, href }, index) => (
-              <a key={index} href={href} target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-300">
-                <Icon className="w-8 h-8" />
-              </a>
-            ))}
+          <h2 className="text-4xl font-bold mb-4 text-center">Contact</h2>
+          <div className="flex justify-center gap-8">
+            <Button variant="outline" className="text-white hover:text-purple-300">
+              <Github className="w-6 h-6" />
+            </Button>
+            <Button variant="outline" className="text-white hover:text-purple-300">
+              <Linkedin className="w-6 h-6" />
+            </Button>
+            <Button variant="outline" className="text-white hover:text-purple-300">
+              <Mail className="w-6 h-6" />
+            </Button>
           </div>
-          <form className="space-y-4 max-w-lg mx-auto">
-            <Input type="text" placeholder="Your Name" required />
-            <Input type="email" placeholder="Your Email" required />
-            <Textarea placeholder="Your Message" rows={4} required />
-            <Button type="submit" className="w-full">Send Message</Button>
-          </form>
         </section>
       </main>
     </div>
   )
 }
-
-export default PortfolioComponent
