@@ -71,7 +71,6 @@ const achievementsData: Achievement[] = [
 const featuredRepos = [
   'FlapPyBird',
   'superman-pygame',
-  // Add more repository names here
 ]
 
 export function PortfolioComponent() {
@@ -82,7 +81,6 @@ export function PortfolioComponent() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        console.log('Fetching projects...')
         const projectPromises = featuredRepos.map(async repo => {
           const response = await fetch(`https://api.github.com/repos/Vaibhavkulshrestha12/${repo}`)
           if (!response.ok) {
@@ -91,10 +89,8 @@ export function PortfolioComponent() {
           return response.json()
         })
         const projectData = await Promise.all(projectPromises)
-        console.log('Fetched project data:', projectData)
         setProjects(projectData as Project[])
       } catch (e) {
-        console.error('Error fetching projects:', e)
         setError(e instanceof Error ? e.message : 'An unknown error occurred')
       } finally {
         setIsLoading(false)
@@ -122,11 +118,11 @@ export function PortfolioComponent() {
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-3xl font-bold">Vaibhav Kulshrestha</h1>
           <nav>
-            <Button variant="ghost" className="mr-2 text-white hover:text-purple-300">About</Button>
-            <Button variant="ghost" className="mr-2 text-white hover:text-purple-300">Skills</Button>
-            <Button variant="ghost" className="mr-2 text-white hover:text-purple-300">Projects</Button>
-            <Button variant="ghost" className="mr-2 text-white hover:text-purple-300">Achievements</Button>
-            <Button variant="ghost" className="text-white hover:text-purple-300">Contact</Button>
+            {['About', 'Skills', 'Projects', 'Achievements', 'Contact'].map((section) => (
+              <Button key={section} variant="ghost" className="mr-2 text-white hover:text-purple-300">
+                {section}
+              </Button>
+            ))}
           </nav>
         </div>
       </header>
@@ -188,41 +184,23 @@ export function PortfolioComponent() {
 
         <section id="contact" className="mb-12">
           <h2 className="text-4xl font-bold mb-4 text-center">Contact Me</h2>
-          <Card className="bg-white bg-opacity-10">
-            <CardContent className="p-6">
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
-                  <Input id="name" placeholder="Your Name" className="bg-white bg-opacity-20 text-white placeholder-gray-400" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
-                  <Input id="email" type="email" placeholder="your@email.com" className="bg-white bg-opacity-20 text-white placeholder-gray-400" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
-                  <Textarea id="message" placeholder="Your message" className="bg-white bg-opacity-20 text-white placeholder-gray-400" />
-                </div>
-                <Button className="w-full">Send Message</Button>
-              </form>
-            </CardContent>
-          </Card>
+          <div className="flex justify-center space-x-6 mb-6">
+            {[{ Icon: Github, href: 'https://github.com/Vaibhavkulshrestha12' }, { Icon: Linkedin, href: 'https://www.linkedin.com/in/vaibhav-kulshrestha' }, { Icon: Mail, href: 'mailto:vaibhav@example.com' }].map(({ Icon, href }, index) => (
+              <a key={index} href={href} target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-300">
+                <Icon className="w-8 h-8" />
+              </a>
+            ))}
+          </div>
+          <form className="space-y-4 max-w-lg mx-auto">
+            <Input type="text" placeholder="Your Name" required />
+            <Input type="email" placeholder="Your Email" required />
+            <Textarea placeholder="Your Message" rows={4} required />
+            <Button type="submit" className="w-full">Send Message</Button>
+          </form>
         </section>
       </main>
-
-      <footer className="mt-12 p-6 bg-black bg-opacity-30">
-        <div className="container mx-auto flex justify-center space-x-4">
-          <a href="https://github.com/Vaibhavkulshrestha12" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300">
-            <Github className="w-6 h-6" />
-          </a>
-          <a href="https://linkedin.com/in/vaibhav-kulshrestha-053924283" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300">
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a href="mailto:vaibhavkulshrestha55@gmail.com" className="hover:text-purple-300">
-            <Mail className="w-6 h-6" />
-          </a>
-        </div>
-      </footer>
     </div>
   )
 }
+
+export default PortfolioComponent

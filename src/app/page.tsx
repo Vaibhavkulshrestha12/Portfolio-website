@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaGitAlt, FaReact, FaNodeJs} from 'react-icons/fa'
+import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaGitAlt, FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTailwindcss, SiCplusplus, SiMongodb, SiFirebase, SiThreedotjs } from 'react-icons/si'
 import { TbBrandCpp } from 'react-icons/tb'
 import { DiMysql } from 'react-icons/di'
@@ -52,19 +52,19 @@ const skillsData: Skill[] = [
 const achievementsData: Achievement[] = [
   { 
     title: 'Smart India Hackathon Winner', 
-    description: 'Won the Smart India Hackathon in 2023, developing an innovative solution for [specific problem].' 
+    description: 'Won the Smart India Hackathon in 2023, developing an innovative solution for a specific problem.' 
   },
   { 
     title: 'Open Source Contributor', 
-    description: 'Contributed to various open-source projects, including [Project Name] and [Project Name].' 
+    description: 'Contributed to various open-source projects, including Project Name and Project Name.' 
   },
   { 
     title: 'Coding Competition Finalist', 
-    description: 'Reached the finals of [Competition Name], competing against top developers from across the country.' 
+    description: 'Reached the finals of a major competition, competing against top developers from across the country.' 
   },
   { 
     title: 'Tech Talk Speaker', 
-    description: 'Delivered a tech talk on [Topic] at [Event Name], sharing insights with over 200 attendees.' 
+    description: 'Delivered a tech talk on a key topic at a major event, sharing insights with over 200 attendees.' 
   },
 ]
 
@@ -135,7 +135,7 @@ export default function Portfolio() {
         <section id="about" className="mb-12">
           <h2 className="text-4xl font-bold mb-4 text-center">About Me</h2>
           <p className="text-lg text-center max-w-2xl mx-auto">
-            I'm a full-stack developer with a passion for creating innovative solutions. 
+            I&apos;m a full-stack developer with a passion for creating innovative solutions. 
             With expertise in both web development and Python programming, I love tackling 
             complex problems and building user-friendly applications.
           </p>
@@ -187,41 +187,29 @@ export default function Portfolio() {
         </section>
 
         <section id="contact" className="mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-center">Contact Me</h2>
-          <Card className="bg-white bg-opacity-10">
-            <CardContent className="p-6">
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
-                  <Input id="name" placeholder="Your Name" className="bg-white bg-opacity-20 text-white placeholder-gray-400" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
-                  <Input id="email" type="email" placeholder="your@email.com" className="bg-white bg-opacity-20 text-white placeholder-gray-400" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
-                  <Textarea id="message" placeholder="Your message" className="bg-white bg-opacity-20 text-white placeholder-gray-400" />
-                </div>
-                <Button className="w-full">Send Message</Button>
-              </form>
-            </CardContent>
-          </Card>
+          <h2 className="text-4xl font-bold mb-4 text-center">Contact</h2>
+          <form className="max-w-lg mx-auto space-y-4">
+            <Input placeholder="Name" className="w-full" />
+            <Input placeholder="Email" className="w-full" />
+            <Textarea placeholder="Message" className="w-full" />
+            <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">Send Message</Button>
+          </form>
         </section>
       </main>
 
-      <footer className="mt-12 p-6 bg-black bg-opacity-30">
-        <div className="container mx-auto flex justify-center space-x-4">
-          <a href="https://github.com/Vaibhavkulshrestha12" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300">
-            <Github className="w-6 h-6" />
+      <footer className="bg-black bg-opacity-30 p-6 text-center">
+        <div className="flex justify-center space-x-4">
+          <a href="https://github.com/Vaibhavkulshrestha12" target="_blank" rel="noopener noreferrer">
+            <Github className="w-6 h-6 text-white hover:text-purple-300" />
           </a>
-          <a href="https://linkedin.com/in/vaibhav-kulshrestha-053924283" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300">
-            <Linkedin className="w-6 h-6" />
+          <a href="https://linkedin.com/in/Vaibhavkulshrestha12" target="_blank" rel="noopener noreferrer">
+            <Linkedin className="w-6 h-6 text-white hover:text-purple-300" />
           </a>
-          <a href="mailto:vaibhavkulshrestha55@gmail.com" className="hover:text-purple-300">
-            <Mail className="w-6 h-6" />
+          <a href="mailto:vaibhav@example.com">
+            <Mail className="w-6 h-6 text-white hover:text-purple-300" />
           </a>
         </div>
+        <p className="text-sm mt-4">© 2024 Vaibhav Kulshrestha. All rights reserved.</p>
       </footer>
     </div>
   )
