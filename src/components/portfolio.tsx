@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaGitAlt, FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa'
+import { FaHtml5, FaCss3Alt, FaJs, FaPython, FaGitAlt, FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTailwindcss, SiCplusplus, SiMongodb, SiFirebase, SiThreedotjs } from 'react-icons/si'
 import { TbBrandCpp } from 'react-icons/tb'
 import { DiMysql } from 'react-icons/di'

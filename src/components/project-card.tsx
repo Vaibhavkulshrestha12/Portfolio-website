@@ -1,7 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Star, GitFork, Eye } from 'lucide-react'
-import { Project } from '../lib/type'
+
 
 export default function ProjectCard({ project }: { project: any }) {
   return (
